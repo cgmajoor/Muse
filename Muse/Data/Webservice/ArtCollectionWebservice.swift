@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ArtCollectionWebservice: ArtCollectionWebserviceProtocol {
+class ArtCollectionWebservice: ArtCollectionWebserviceProtocol {
     // TODO: Refactor
     let baseURL = "https://www.rijksmuseum.nl/"
     let getCollectionPath = "api/nl/collection"
@@ -45,7 +45,7 @@ struct ArtCollectionWebservice: ArtCollectionWebserviceProtocol {
 private extension ArtCollectionWebservice {
 
     func performRequest(endpoint: String, completion: @escaping (GetCollectionResponse?, WebserviceError?) -> ()) {
-        if let urlRequest = URL(string: endpoint) {
+        if let urlRequest = URL(string: endpoint) { 
             let session = URLSession(configuration: .default)
 
             let task = session.dataTask(with: urlRequest) { data, response, error in
@@ -67,7 +67,7 @@ private extension ArtCollectionWebservice {
                     return
                 }
 
-                parseJSON(data, completion: completion)
+                self.parseJSON(data, completion: completion)
             }
 
             task.resume()

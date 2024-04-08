@@ -10,6 +10,7 @@ import UIKit
 class ArtworkListViewController: UIViewController {
 
     private var viewModel: ArtworkListViewModel
+    private var router: ArtworkListRouting
 
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewFlowLayout)
@@ -39,8 +40,12 @@ class ArtworkListViewController: UIViewController {
         return collectionViewFlowLayout
     }()
 
-    init(viewModel: ArtworkListViewModel = ArtworkListViewModel()) {
+    init(
+        viewModel: ArtworkListViewModel = ArtworkListViewModel(),
+        router: ArtworkListRouting = ArtworkListRouter()
+    ) {
         self.viewModel = viewModel
+        self.router = router
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -68,6 +73,12 @@ extension ArtworkListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard section < viewModel.artworks.count else { return 0 }
         return viewModel.artworks[section].count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = viewModel.artworks[indexPath.section][indexPath.row]
+
+        router.didSelectArtwork(in: self, artwork: item)
     }
 }
 

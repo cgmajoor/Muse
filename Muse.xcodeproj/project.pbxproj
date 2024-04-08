@@ -27,6 +27,10 @@
 		F251EEE72BC446BC00F5B464 /* GetArtworksProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEE62BC446BC00F5B464 /* GetArtworksProtocol.swift */; };
 		F251EEF62BC4949D00F5B464 /* GetPortraitsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEF52BC4949D00F5B464 /* GetPortraitsTests.swift */; };
 		F251EEFC2BC4977500F5B464 /* MockArtCollectionWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEFB2BC4977500F5B464 /* MockArtCollectionWebservice.swift */; };
+		F251EEFF2BC4A84C00F5B464 /* ArtworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEFE2BC4A84C00F5B464 /* ArtworkViewController.swift */; };
+		F251EF012BC4A89700F5B464 /* ArtworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EF002BC4A89700F5B464 /* ArtworkViewModel.swift */; };
+		F251EF052BC4AA3900F5B464 /* ArtworkListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EF042BC4AA3900F5B464 /* ArtworkListRouter.swift */; };
+		F251EF092BC4AD6D00F5B464 /* CanDownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EF082BC4AD6D00F5B464 /* CanDownloadImage.swift */; };
 		F2E675EA2BB1B71C00F878D7 /* ArtworkListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E675E92BB1B71C00F878D7 /* ArtworkListViewModel.swift */; };
 		F2E675EC2BB1BAFF00F878D7 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E675EB2BB1BAFF00F878D7 /* Artwork.swift */; };
 		F2E675EE2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E675ED2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift */; };
@@ -68,6 +72,10 @@
 		F251EEEC2BC4945800F5B464 /* MuseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F251EEF52BC4949D00F5B464 /* GetPortraitsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPortraitsTests.swift; sourceTree = "<group>"; };
 		F251EEFB2BC4977500F5B464 /* MockArtCollectionWebservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArtCollectionWebservice.swift; sourceTree = "<group>"; };
+		F251EEFE2BC4A84C00F5B464 /* ArtworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkViewController.swift; sourceTree = "<group>"; };
+		F251EF002BC4A89700F5B464 /* ArtworkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkViewModel.swift; sourceTree = "<group>"; };
+		F251EF042BC4AA3900F5B464 /* ArtworkListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkListRouter.swift; sourceTree = "<group>"; };
+		F251EF082BC4AD6D00F5B464 /* CanDownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanDownloadImage.swift; sourceTree = "<group>"; };
 		F2E675E92BB1B71C00F878D7 /* ArtworkListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkListViewModel.swift; sourceTree = "<group>"; };
 		F2E675EB2BB1BAFF00F878D7 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		F2E675ED2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -132,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				F251EEAE2BBE09E900F5B464 /* Views */,
+				F251EF082BC4AD6D00F5B464 /* CanDownloadImage.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -148,8 +157,7 @@
 		F251EEB22BBE0CEA00F5B464 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				F251EED62BC40D2800F5B464 /* Model */,
-				F251EED52BC40D1300F5B464 /* Webservice */,
+				F251EF062BC4ACD200F5B464 /* ArtCollection */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -165,8 +173,7 @@
 		F251EECE2BC40BDA00F5B464 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				F251EEDD2BC4165800F5B464 /* Model */,
-				F251EEDE2BC4175B00F5B464 /* Usecase */,
+				F251EF072BC4ACE400F5B464 /* ArtCollection */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -227,9 +234,37 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		F251EEFD2BC4A81B00F5B464 /* Artwork */ = {
+			isa = PBXGroup;
+			children = (
+				F251EEFE2BC4A84C00F5B464 /* ArtworkViewController.swift */,
+				F251EF002BC4A89700F5B464 /* ArtworkViewModel.swift */,
+			);
+			path = Artwork;
+			sourceTree = "<group>";
+		};
+		F251EF062BC4ACD200F5B464 /* ArtCollection */ = {
+			isa = PBXGroup;
+			children = (
+				F251EED52BC40D1300F5B464 /* Webservice */,
+				F251EED62BC40D2800F5B464 /* Model */,
+			);
+			path = ArtCollection;
+			sourceTree = "<group>";
+		};
+		F251EF072BC4ACE400F5B464 /* ArtCollection */ = {
+			isa = PBXGroup;
+			children = (
+				F251EEDE2BC4175B00F5B464 /* Usecase */,
+				F251EEDD2BC4165800F5B464 /* Model */,
+			);
+			path = ArtCollection;
+			sourceTree = "<group>";
+		};
 		F2E675E72BB1B6F300F878D7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F251EEFD2BC4A81B00F5B464 /* Artwork */,
 				F2E675E82BB1B6FF00F878D7 /* ArtworkList */,
 			);
 			path = Scenes;
@@ -241,6 +276,7 @@
 				F231F9B82BB1879C00816828 /* ArtworkListViewController.swift */,
 				F2E675E92BB1B71C00F878D7 /* ArtworkListViewModel.swift */,
 				F2E675ED2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift */,
+				F251EF042BC4AA3900F5B464 /* ArtworkListRouter.swift */,
 			);
 			path = ArtworkList;
 			sourceTree = "<group>";
@@ -349,10 +385,13 @@
 				F251EED02BC40BE800F5B464 /* GetPortraits.swift in Sources */,
 				F251EEE72BC446BC00F5B464 /* GetArtworksProtocol.swift in Sources */,
 				F251EEDC2BC4114A00F5B464 /* AppConfig.swift in Sources */,
+				F251EF012BC4A89700F5B464 /* ArtworkViewModel.swift in Sources */,
 				F251EECB2BC3FDB900F5B464 /* MockArtworks.swift in Sources */,
 				F251EEB42BBE0DE600F5B464 /* ArtObject.swift in Sources */,
 				F251EED22BC40C9300F5B464 /* WebserviceError.swift in Sources */,
+				F251EF092BC4AD6D00F5B464 /* CanDownloadImage.swift in Sources */,
 				F251EED42BC40CC100F5B464 /* ArtCollectionWebserviceProtocol.swift in Sources */,
+				F251EEFF2BC4A84C00F5B464 /* ArtworkViewController.swift in Sources */,
 				F251EEE02BC4183100F5B464 /* GetLandscapes.swift in Sources */,
 				F251EEBD2BBEB7C100F5B464 /* ArtCollectionWebservice.swift in Sources */,
 				F2E675EA2BB1B71C00F878D7 /* ArtworkListViewModel.swift in Sources */,
@@ -362,6 +401,7 @@
 				F2E675EC2BB1BAFF00F878D7 /* Artwork.swift in Sources */,
 				F231F9B52BB1879C00816828 /* AppDelegate.swift in Sources */,
 				F251EEB02BBE0A2E00F5B464 /* ArtworkType.swift in Sources */,
+				F251EF052BC4AA3900F5B464 /* ArtworkListRouter.swift in Sources */,
 				F251EEAC2BBE02CD00F5B464 /* HeaderCollectionReusableView.swift in Sources */,
 				F2E675EE2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift in Sources */,
 				F251EEE22BC4368E00F5B464 /* ImageState.swift in Sources */,

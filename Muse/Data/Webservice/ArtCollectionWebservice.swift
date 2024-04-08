@@ -7,20 +7,26 @@
 
 import Foundation
 
-struct ArtCollectionWebservice {
+struct ArtCollectionWebservice: ArtCollectionWebserviceProtocol {
     // TODO: Refactor
     let baseURL = "https://www.rijksmuseum.nl/"
     let getCollectionPath = "api/nl/collection"
-    let apiKey = "sI3IO2gJ"
 
     func fetchCollection(
-        type: String = "schilderij",
-        searchTerm: String = "portret",
-        page: Int = 0,
-        pageSize: Int = 20,
+        type: String,
+        searchTerm: String?,
+        page: Int,
+        pageSize: Int,
         completion: @escaping ([Artwork]?, WebserviceError?) -> ()
     ) {
-        let endpoint = "\(baseURL)\(getCollectionPath)?key=\(apiKey)&p=\(page)&ps=\(pageSize)&imgonly=True&type=\(type)&q=\(searchTerm)"
+        var filter: String = ""
+
+        if let searchTerm = searchTerm {
+            filter = "&q=\(searchTerm)"
+        }
+
+        let endpoint = "\(baseURL)\(getCollectionPath)?key=\(AppConfig.apiKey)&p=\(page)&ps=\(pageSize)&imgonly=True&type=\(type)\(filter)"
+
         performRequest(endpoint: endpoint) { response, error in
             guard
                 error == nil,
@@ -33,6 +39,9 @@ struct ArtCollectionWebservice {
             completion(response.artObjects.map { $0.toDomainModel() }, nil)
         }
     }
+}
+
+private extension ArtCollectionWebservice {
 
     func performRequest(endpoint: String, completion: @escaping (GetCollectionResponse?, WebserviceError?) -> ()) {
         if let urlRequest = URL(string: endpoint) {
@@ -63,9 +72,6 @@ struct ArtCollectionWebservice {
             task.resume()
         }
     }
-}
-
-private extension ArtCollectionWebservice {
 
     func parseJSON(_ data: Data, completion: @escaping (GetCollectionResponse?, WebserviceError?) -> ()) {
         do {

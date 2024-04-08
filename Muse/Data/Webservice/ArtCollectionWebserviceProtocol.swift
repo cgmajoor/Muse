@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ArtCollectionWebserviceProtocol {
-    func fetchCollection(type: String, searchTerm: String, page: Int, pageSize: Int, completion: @escaping ([Artwork]?, WebserviceError?) -> ())
+    func fetchCollection(type: String, searchTerm: String?, page: Int, pageSize: Int, completion: @escaping ([Artwork]?, WebserviceError?) -> ()) -> ()
 }

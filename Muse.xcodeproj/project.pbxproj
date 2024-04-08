@@ -23,6 +23,7 @@
 		F251EED42BC40CC100F5B464 /* ArtCollectionWebserviceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EED32BC40CC100F5B464 /* ArtCollectionWebserviceProtocol.swift */; };
 		F251EEDC2BC4114A00F5B464 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEDB2BC4114A00F5B464 /* AppConfig.swift */; };
 		F251EEE02BC4183100F5B464 /* GetLandscapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEDF2BC4183100F5B464 /* GetLandscapes.swift */; };
+		F251EEE22BC4368E00F5B464 /* ImageState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEE12BC4368E00F5B464 /* ImageState.swift */; };
 		F2E675EA2BB1B71C00F878D7 /* ArtworkListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E675E92BB1B71C00F878D7 /* ArtworkListViewModel.swift */; };
 		F2E675EC2BB1BAFF00F878D7 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E675EB2BB1BAFF00F878D7 /* Artwork.swift */; };
 		F2E675EE2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E675ED2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift */; };
@@ -49,6 +50,7 @@
 		F251EEDA2BC4108D00F5B464 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		F251EEDB2BC4114A00F5B464 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		F251EEDF2BC4183100F5B464 /* GetLandscapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLandscapes.swift; sourceTree = "<group>"; };
+		F251EEE12BC4368E00F5B464 /* ImageState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageState.swift; sourceTree = "<group>"; };
 		F2E675E92BB1B71C00F878D7 /* ArtworkListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkListViewModel.swift; sourceTree = "<group>"; };
 		F2E675EB2BB1BAFF00F878D7 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		F2E675ED2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -87,11 +89,11 @@
 		F231F9B32BB1879C00816828 /* Muse */ = {
 			isa = PBXGroup;
 			children = (
+				F2E675E72BB1B6F300F878D7 /* Scenes */,
 				F251EECE2BC40BDA00F5B464 /* Domain */,
 				F251EEC92BC3FD9D00F5B464 /* MockData */,
 				F251EEB22BBE0CEA00F5B464 /* Data */,
 				F251EEAD2BBE09E200F5B464 /* Common */,
-				F2E675E72BB1B6F300F878D7 /* Scenes */,
 				F231F9B42BB1879C00816828 /* AppDelegate.swift */,
 				F231F9BD2BB1879C00816828 /* Assets.xcassets */,
 				F231F9BF2BB1879C00816828 /* LaunchScreen.storyboard */,
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				F251EEAB2BBE02CD00F5B464 /* HeaderCollectionReusableView.swift */,
+				F251EEE12BC4368E00F5B464 /* ImageState.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				F251EEB02BBE0A2E00F5B464 /* ArtworkType.swift in Sources */,
 				F251EEAC2BBE02CD00F5B464 /* HeaderCollectionReusableView.swift in Sources */,
 				F2E675EE2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift in Sources */,
+				F251EEE22BC4368E00F5B464 /* ImageState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -105,6 +105,7 @@
 		F251EEAD2BBE09E200F5B464 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F251EEE52BC436D000F5B464 /* Extensions */,
 				F251EEAE2BBE09E900F5B464 /* Views */,
 			);
 			path = Common;
@@ -181,6 +182,13 @@
 				F251EEDF2BC4183100F5B464 /* GetLandscapes.swift */,
 			);
 			path = Usecase;
+			sourceTree = "<group>";
+		};
+		F251EEE52BC436D000F5B464 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F2E675E72BB1B6F300F878D7 /* Scenes */ = {

@@ -139,12 +139,25 @@ private extension ArtworkListViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-
+    
     func getNextArtworks() {
-        viewModel.getArtworks() { [weak self] artworks in
+        viewModel.getArtworks() { [weak self] artworks, error in
+            guard let self else { return }
             DispatchQueue.main.async {
-                self?.collectionView.reloadData()
+                guard error == nil else {
+                    self.showAlert(error: error)
+                    return
+                }
+                self.collectionView.reloadData()
             }
         }
+    }
+
+    func showAlert(error: WebserviceError?) {
+        let alertViewController = UIAlertController(title: "Error", message: error?.rawValue, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default)
+        alertViewController.addAction(okAction)
+        alertViewController.modalPresentationStyle = .automatic
+        self.present(alertViewController, animated: true)
     }
 }

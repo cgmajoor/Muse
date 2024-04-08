@@ -25,7 +25,6 @@ class GetPortraits: GetArtworksProtocol {
                 return Artwork(id: artwork.id, name: artwork.name, imageURL: artwork.imageURL, type: .portrait)
             }
 
-            dump(portraits, name: "🍄 Portraits")
             completion(portraits, nil)
         }
     }

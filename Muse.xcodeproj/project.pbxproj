@@ -24,6 +24,7 @@
 		F251EEDC2BC4114A00F5B464 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEDB2BC4114A00F5B464 /* AppConfig.swift */; };
 		F251EEE02BC4183100F5B464 /* GetLandscapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEDF2BC4183100F5B464 /* GetLandscapes.swift */; };
 		F251EEE22BC4368E00F5B464 /* ImageState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEE12BC4368E00F5B464 /* ImageState.swift */; };
+		F251EEE72BC446BC00F5B464 /* GetArtworksProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEE62BC446BC00F5B464 /* GetArtworksProtocol.swift */; };
 		F2E675EA2BB1B71C00F878D7 /* ArtworkListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E675E92BB1B71C00F878D7 /* ArtworkListViewModel.swift */; };
 		F2E675EC2BB1BAFF00F878D7 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E675EB2BB1BAFF00F878D7 /* Artwork.swift */; };
 		F2E675EE2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E675ED2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift */; };
@@ -51,6 +52,7 @@
 		F251EEDB2BC4114A00F5B464 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		F251EEDF2BC4183100F5B464 /* GetLandscapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLandscapes.swift; sourceTree = "<group>"; };
 		F251EEE12BC4368E00F5B464 /* ImageState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageState.swift; sourceTree = "<group>"; };
+		F251EEE62BC446BC00F5B464 /* GetArtworksProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtworksProtocol.swift; sourceTree = "<group>"; };
 		F2E675E92BB1B71C00F878D7 /* ArtworkListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkListViewModel.swift; sourceTree = "<group>"; };
 		F2E675EB2BB1BAFF00F878D7 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		F2E675ED2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -105,7 +107,6 @@
 		F251EEAD2BBE09E200F5B464 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				F251EEE52BC436D000F5B464 /* Extensions */,
 				F251EEAE2BBE09E900F5B464 /* Views */,
 			);
 			path = Common;
@@ -180,15 +181,9 @@
 			children = (
 				F251EECF2BC40BE800F5B464 /* GetPortraits.swift */,
 				F251EEDF2BC4183100F5B464 /* GetLandscapes.swift */,
+				F251EEE62BC446BC00F5B464 /* GetArtworksProtocol.swift */,
 			);
 			path = Usecase;
-			sourceTree = "<group>";
-		};
-		F251EEE52BC436D000F5B464 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F2E675E72BB1B6F300F878D7 /* Scenes */ = {
@@ -280,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F251EED02BC40BE800F5B464 /* GetPortraits.swift in Sources */,
+				F251EEE72BC446BC00F5B464 /* GetArtworksProtocol.swift in Sources */,
 				F251EEDC2BC4114A00F5B464 /* AppConfig.swift in Sources */,
 				F251EECB2BC3FDB900F5B464 /* MockArtworks.swift in Sources */,
 				F251EEB42BBE0DE600F5B464 /* ArtObject.swift in Sources */,

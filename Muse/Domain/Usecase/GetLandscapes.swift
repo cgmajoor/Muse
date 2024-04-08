@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GetLandscapes {
+class GetLandscapes: GetArtworksProtocol {
     private var webservice: ArtCollectionWebserviceProtocol
     
     init(webservice: ArtCollectionWebserviceProtocol = ArtCollectionWebservice()) {
@@ -15,7 +15,7 @@ class GetLandscapes {
     }
     
     func execute(page: Int = 0, completion: @escaping ([Artwork]?, WebserviceError?) -> ()) {
-        webservice.fetchCollection(type: "schilderij", searchTerm: "landschap", page: page, pageSize: 10) { artworks, error in
+        webservice.fetchCollection(type: "schilderij", searchTerm: "landschap", page: page, pageSize: AppConfig.pageSize) { artworks, error in
             guard let artworks = artworks else {
                 completion(nil, error)
                 return
@@ -25,6 +25,7 @@ class GetLandscapes {
                 return Artwork(id: artwork.id, name: artwork.name, imageURL: artwork.imageURL, type: .landscape)
             }
             
+            dump(landscapes, name: "🍄 Landscapes")
             completion(landscapes, nil)
         }
     }

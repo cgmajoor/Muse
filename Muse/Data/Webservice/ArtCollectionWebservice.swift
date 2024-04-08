@@ -35,8 +35,9 @@ struct ArtCollectionWebservice: ArtCollectionWebserviceProtocol {
                 completion(nil, error)
                 return
             }
-
-            completion(response.artObjects.map { $0.toDomainModel() }, nil)
+            
+            let artworks = response.artObjects.map { $0.toDomainModel() }
+            completion(artworks, nil)
         }
     }
 }

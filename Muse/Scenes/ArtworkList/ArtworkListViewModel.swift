@@ -11,19 +11,21 @@ class ArtworkListViewModel {
 
     var artworks: [[Artwork]] = [[],[]]
     
-    var getPortraits: GetPortraits
-    var getLandscapes: GetLandscapes
+    private var isLoading: Bool = false
+    private var page = 1
+    private var getPortraits: GetArtworksProtocol
+    private var getLandscapes: GetArtworksProtocol
 
     init(
-        getPortraits: GetPortraits = GetPortraits(),
-        getLandscapes: GetLandscapes = GetLandscapes()
+        getPortraits: GetArtworksProtocol = GetPortraits(),
+        getLandscapes: GetArtworksProtocol = GetLandscapes()
     ) {
         self.getPortraits = getPortraits
         self.getLandscapes = getLandscapes
     }
 
     func getArtworks(completion: @escaping ([[Artwork]]) -> ()) {
-        getPortraits.execute { [weak self] portraits, error in
+        getPortraits.execute(page: page) { [weak self] portraits, error in
             guard  let self else { return }
 
             guard let portraits = portraits else {
@@ -31,29 +33,21 @@ class ArtworkListViewModel {
                 return
             }
 
-            self.appendIfHasNewItem(type: .portrait, artworks: portraits)
+            self.artworks[0].append(contentsOf: portraits)
 
-            self.getLandscapes.execute { landscapes, error in
+            self.getLandscapes.execute(page: page) { landscapes, error in
                 guard let landscapes = landscapes else {
                     // TODO: Empty landscapes
                     return
                 }
 
-                self.appendIfHasNewItem(type: .landscape, artworks: landscapes)
-                completion(self.artworks)
-            }
-        }
-    }
+                self.artworks[1].append(contentsOf: landscapes)
 
-    private func appendIfHasNewItem(type: ArtworkType, artworks: [Artwork]) {
-        switch type {
-        case .portrait:
-            if artworks.count > self.artworks[0].count {
-                self.artworks[0].append(contentsOf: artworks)
-            }
-        case .landscape:
-            if artworks.count > self.artworks[1].count {
-                self.artworks[1].append(contentsOf: artworks)
+                self.page += 1
+                self.isLoading = false
+                print("Fetched page \(self.page)")
+                
+                completion(self.artworks)
             }
         }
     }

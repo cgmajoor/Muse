@@ -55,7 +55,7 @@ class ArtworkListViewController: UIViewController {
         view.backgroundColor = .systemBackground
 
         setup()
-        getArtworks()
+        getNextArtworks()
     }
 }
 
@@ -78,6 +78,14 @@ extension ArtworkListViewController: UICollectionViewDataSource {
         let item = viewModel.artworks[indexPath.section][indexPath.row]
         cell.setup(with: item)
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if (indexPath.section == 1) &&
+            indexPath.row == viewModel.artworks[1].count - 1 {
+            print("_______")
+            getNextArtworks()
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -132,8 +140,8 @@ private extension ArtworkListViewController {
         ])
     }
 
-    func getArtworks() {
-        viewModel.getArtworks { [weak self] artworks in
+    func getNextArtworks() {
+        viewModel.getArtworks() { [weak self] artworks in
             DispatchQueue.main.async {
                 self?.collectionView.reloadData()
             }

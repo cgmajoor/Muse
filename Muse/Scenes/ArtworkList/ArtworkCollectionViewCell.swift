@@ -21,9 +21,10 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure() {
-        configureHierarchy()
-        configureLayout()
+    override func prepareForReuse() {
+        imageView.image = nil
+        titleLabel.text = ""
+        dataTask?.cancel()
     }
 
     func setup(with artwork: Artwork) {
@@ -39,30 +40,45 @@ class ArtworkCollectionViewCell: UICollectionViewCell {
         titleLabel.textColor = .systemPink
     }
 
-    override func prepareForReuse() {
-        imageView.image = nil
-        titleLabel.text = ""
-        dataTask?.cancel()
+    private func configure() {
+        configureHierarchy()
+        configureLayout()
     }
 }
 
 private extension ArtworkCollectionViewCell {
 
+    func configureImageState(state: ImageState, completion: @escaping (UIImage) -> ()) {
+        DispatchQueue.main.async {
+            switch state {
+            case .loading:
+                let loadingImage = UIImage(systemName: "photo.artframe")?.withTintColor(.tertiarySystemFill, renderingMode: .alwaysOriginal) ?? UIImage()
+                completion(loadingImage)
+            case .error:
+                let errorImage = UIImage(systemName: "exclamationmark.square")?.withTintColor(.tertiarySystemFill, renderingMode: .alwaysOriginal) ?? UIImage()
+                completion(errorImage)
+            case .success(let image):
+                completion(image)
+            }
+        }
+    }
+
     func downloadImage(_ urlString: String, completion: @escaping (UIImage) -> ()) {
         //TODO: Refactor
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let self else { return }
+            configureImageState(state: .loading, completion: completion)
 
             if let url = URL(string: urlString) {
-                self.dataTask = URLSession.shared.dataTask(with: url) { (data, response, err) in
-                    guard let data = data else { return }
+                self.dataTask = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
+                    guard let self, let data = data else { return }
 
-                    if err == nil {
+                    if error == nil {
                         if let image = UIImage(data: data) {
-                            DispatchQueue.main.async {
-                                completion(image)
-                            }
+                            self.configureImageState(state: .success(image), completion: completion)
                         }
+                    } else {
+                        self.configureImageState(state: .error, completion: completion)
                     }
                 }
 

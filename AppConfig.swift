@@ -15,4 +15,6 @@ struct AppConfig {
         }
         return apiKey
     }()
+
+    static let pageSize: Int = 1
 }

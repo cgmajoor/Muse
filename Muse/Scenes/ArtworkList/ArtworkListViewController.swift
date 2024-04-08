@@ -55,7 +55,7 @@ class ArtworkListViewController: UIViewController {
         view.backgroundColor = .systemBackground
 
         setup()
-        getArtworks()
+        getNextArtworks()
     }
 }
 
@@ -78,6 +78,14 @@ extension ArtworkListViewController: UICollectionViewDataSource {
         let item = viewModel.artworks[indexPath.section][indexPath.row]
         cell.setup(with: item)
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if (indexPath.section == 1) &&
+            indexPath.row == viewModel.artworks[1].count - 1 {
+            print("_______")
+            getNextArtworks()
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -131,12 +139,25 @@ private extension ArtworkListViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-
-    func getArtworks() {
-        viewModel.getArtworks { [weak self] artworks in
+    
+    func getNextArtworks() {
+        viewModel.getArtworks() { [weak self] artworks, error in
+            guard let self else { return }
             DispatchQueue.main.async {
-                self?.collectionView.reloadData()
+                guard error == nil else {
+                    self.showAlert(error: error)
+                    return
+                }
+                self.collectionView.reloadData()
             }
         }
+    }
+
+    func showAlert(error: WebserviceError?) {
+        let alertViewController = UIAlertController(title: "Error", message: error?.rawValue, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default)
+        alertViewController.addAction(okAction)
+        alertViewController.modalPresentationStyle = .automatic
+        self.present(alertViewController, animated: true)
     }
 }

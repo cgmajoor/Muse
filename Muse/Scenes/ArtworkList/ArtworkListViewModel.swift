@@ -8,52 +8,57 @@
 import Foundation
 
 class ArtworkListViewModel {
-
+    
     var artworks: [[Artwork]] = [[],[]]
     
-    var getPortraits: GetPortraits
-    var getLandscapes: GetLandscapes
-
+    private var isLoading: Bool = false
+    private var page = 0
+    private var getPortraits: GetArtworksProtocol
+    private var getLandscapes: GetArtworksProtocol
+    
     init(
-        getPortraits: GetPortraits = GetPortraits(),
-        getLandscapes: GetLandscapes = GetLandscapes()
+        getPortraits: GetArtworksProtocol = GetPortraits(),
+        getLandscapes: GetArtworksProtocol = GetLandscapes()
     ) {
         self.getPortraits = getPortraits
         self.getLandscapes = getLandscapes
     }
-
-    func getArtworks(completion: @escaping ([[Artwork]]) -> ()) {
-        getPortraits.execute { [weak self] portraits, error in
+    
+    func getArtworks(completion: @escaping ([[Artwork]], WebserviceError?) -> ()) {
+        // TODO: Refactor
+        guard (page * AppConfig.pageSize) < 10000 else {
+            completion(self.artworks, nil)
+            return
+        }
+        
+        getPortraits.execute(page: page) { [weak self] portraits, portraitsError in
             guard  let self else { return }
-
+            if let portraitsError = portraitsError {
+                completion([[],[]], portraitsError)
+            }
+            
             guard let portraits = portraits else {
-                // TODO: Empty portraits
                 return
             }
-
-            self.appendIfHasNewItem(type: .portrait, artworks: portraits)
-
-            self.getLandscapes.execute { landscapes, error in
+            
+            self.artworks[0].append(contentsOf: portraits)
+            
+            self.getLandscapes.execute(page: page) { landscapes, landscapesError in
+                if let landscapesError = landscapesError {
+                    completion([[],[]], landscapesError)
+                }
+                
                 guard let landscapes = landscapes else {
-                    // TODO: Empty landscapes
                     return
                 }
-
-                self.appendIfHasNewItem(type: .landscape, artworks: landscapes)
-                completion(self.artworks)
-            }
-        }
-    }
-
-    private func appendIfHasNewItem(type: ArtworkType, artworks: [Artwork]) {
-        switch type {
-        case .portrait:
-            if artworks.count > self.artworks[0].count {
-                self.artworks[0].append(contentsOf: artworks)
-            }
-        case .landscape:
-            if artworks.count > self.artworks[1].count {
-                self.artworks[1].append(contentsOf: artworks)
+                
+                self.artworks[1].append(contentsOf: landscapes)
+                
+                self.page += 1
+                self.isLoading = false
+                print("Fetched page \(self.page)")
+                
+                completion(self.artworks, nil)
             }
         }
     }

@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum WebserviceError {
-    case genericError
-    case badResponse
-    case noData
-    case invalidData
+enum WebserviceError: String {
+    case genericError = "Something went wrong"
+    case badResponse = "Bad response"
+    case noData = "No data"
+    case invalidData = "Could not parse data"
 }

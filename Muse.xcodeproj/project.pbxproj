@@ -13,6 +13,16 @@
 		F231F9C12BB1879C00816828 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = F231F9C02BB1879C00816828 /* Base */; };
 		F251EEAC2BBE02CD00F5B464 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEAB2BBE02CD00F5B464 /* HeaderCollectionReusableView.swift */; };
 		F251EEB02BBE0A2E00F5B464 /* ArtworkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEAF2BBE0A2E00F5B464 /* ArtworkType.swift */; };
+		F251EEB42BBE0DE600F5B464 /* ArtObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEB32BBE0DE600F5B464 /* ArtObject.swift */; };
+		F251EEB82BBE123800F5B464 /* WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEB72BBE123800F5B464 /* WebImage.swift */; };
+		F251EEBD2BBEB7C100F5B464 /* ArtCollectionWebservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEBC2BBEB7C100F5B464 /* ArtCollectionWebservice.swift */; };
+		F251EEBF2BBEB7E000F5B464 /* GetCollectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEBE2BBEB7E000F5B464 /* GetCollectionResponse.swift */; };
+		F251EECB2BC3FDB900F5B464 /* MockArtworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EECA2BC3FDB900F5B464 /* MockArtworks.swift */; };
+		F251EED02BC40BE800F5B464 /* GetPortraits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EECF2BC40BE800F5B464 /* GetPortraits.swift */; };
+		F251EED22BC40C9300F5B464 /* WebserviceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EED12BC40C9300F5B464 /* WebserviceError.swift */; };
+		F251EED42BC40CC100F5B464 /* ArtCollectionWebserviceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EED32BC40CC100F5B464 /* ArtCollectionWebserviceProtocol.swift */; };
+		F251EEDC2BC4114A00F5B464 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEDB2BC4114A00F5B464 /* AppConfig.swift */; };
+		F251EEE02BC4183100F5B464 /* GetLandscapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251EEDF2BC4183100F5B464 /* GetLandscapes.swift */; };
 		F2E675EA2BB1B71C00F878D7 /* ArtworkListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E675E92BB1B71C00F878D7 /* ArtworkListViewModel.swift */; };
 		F2E675EC2BB1BAFF00F878D7 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E675EB2BB1BAFF00F878D7 /* Artwork.swift */; };
 		F2E675EE2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E675ED2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift */; };
@@ -27,6 +37,18 @@
 		F231F9C22BB1879C00816828 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F251EEAB2BBE02CD00F5B464 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		F251EEAF2BBE0A2E00F5B464 /* ArtworkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkType.swift; sourceTree = "<group>"; };
+		F251EEB32BBE0DE600F5B464 /* ArtObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtObject.swift; sourceTree = "<group>"; };
+		F251EEB72BBE123800F5B464 /* WebImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImage.swift; sourceTree = "<group>"; };
+		F251EEBC2BBEB7C100F5B464 /* ArtCollectionWebservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCollectionWebservice.swift; sourceTree = "<group>"; };
+		F251EEBE2BBEB7E000F5B464 /* GetCollectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCollectionResponse.swift; sourceTree = "<group>"; };
+		F251EECA2BC3FDB900F5B464 /* MockArtworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArtworks.swift; sourceTree = "<group>"; };
+		F251EECF2BC40BE800F5B464 /* GetPortraits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPortraits.swift; sourceTree = "<group>"; };
+		F251EED12BC40C9300F5B464 /* WebserviceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebserviceError.swift; sourceTree = "<group>"; };
+		F251EED32BC40CC100F5B464 /* ArtCollectionWebserviceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtCollectionWebserviceProtocol.swift; sourceTree = "<group>"; };
+		F251EED92BC4107B00F5B464 /* ConfigDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigDebug.xcconfig; sourceTree = "<group>"; };
+		F251EEDA2BC4108D00F5B464 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		F251EEDB2BC4114A00F5B464 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		F251EEDF2BC4183100F5B464 /* GetLandscapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLandscapes.swift; sourceTree = "<group>"; };
 		F2E675E92BB1B71C00F878D7 /* ArtworkListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkListViewModel.swift; sourceTree = "<group>"; };
 		F2E675EB2BB1BAFF00F878D7 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		F2E675ED2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -46,6 +68,9 @@
 		F231F9A82BB1879C00816828 = {
 			isa = PBXGroup;
 			children = (
+				F251EEDB2BC4114A00F5B464 /* AppConfig.swift */,
+				F251EEDA2BC4108D00F5B464 /* Config.xcconfig */,
+				F251EED92BC4107B00F5B464 /* ConfigDebug.xcconfig */,
 				F231F9B32BB1879C00816828 /* Muse */,
 				F231F9B22BB1879C00816828 /* Products */,
 			);
@@ -62,6 +87,9 @@
 		F231F9B32BB1879C00816828 /* Muse */ = {
 			isa = PBXGroup;
 			children = (
+				F251EECE2BC40BDA00F5B464 /* Domain */,
+				F251EEC92BC3FD9D00F5B464 /* MockData */,
+				F251EEB22BBE0CEA00F5B464 /* Data */,
 				F251EEAD2BBE09E200F5B464 /* Common */,
 				F2E675E72BB1B6F300F878D7 /* Scenes */,
 				F231F9B42BB1879C00816828 /* AppDelegate.swift */,
@@ -88,6 +116,70 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		F251EEB22BBE0CEA00F5B464 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F251EED62BC40D2800F5B464 /* Model */,
+				F251EED52BC40D1300F5B464 /* Webservice */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F251EEC92BC3FD9D00F5B464 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				F251EECA2BC3FDB900F5B464 /* MockArtworks.swift */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
+		F251EECE2BC40BDA00F5B464 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				F251EEDD2BC4165800F5B464 /* Model */,
+				F251EEDE2BC4175B00F5B464 /* Usecase */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		F251EED52BC40D1300F5B464 /* Webservice */ = {
+			isa = PBXGroup;
+			children = (
+				F251EEBC2BBEB7C100F5B464 /* ArtCollectionWebservice.swift */,
+				F251EED32BC40CC100F5B464 /* ArtCollectionWebserviceProtocol.swift */,
+				F251EED12BC40C9300F5B464 /* WebserviceError.swift */,
+			);
+			path = Webservice;
+			sourceTree = "<group>";
+		};
+		F251EED62BC40D2800F5B464 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F251EEBE2BBEB7E000F5B464 /* GetCollectionResponse.swift */,
+				F251EEB32BBE0DE600F5B464 /* ArtObject.swift */,
+				F251EEB72BBE123800F5B464 /* WebImage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F251EEDD2BC4165800F5B464 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F2E675EB2BB1BAFF00F878D7 /* Artwork.swift */,
+				F251EEAF2BBE0A2E00F5B464 /* ArtworkType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F251EEDE2BC4175B00F5B464 /* Usecase */ = {
+			isa = PBXGroup;
+			children = (
+				F251EECF2BC40BE800F5B464 /* GetPortraits.swift */,
+				F251EEDF2BC4183100F5B464 /* GetLandscapes.swift */,
+			);
+			path = Usecase;
+			sourceTree = "<group>";
+		};
 		F2E675E72BB1B6F300F878D7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,8 +194,6 @@
 				F231F9B82BB1879C00816828 /* ArtworkListViewController.swift */,
 				F2E675E92BB1B71C00F878D7 /* ArtworkListViewModel.swift */,
 				F2E675ED2BB1D32700F878D7 /* ArtworkCollectionViewCell.swift */,
-				F2E675EB2BB1BAFF00F878D7 /* Artwork.swift */,
-				F251EEAF2BBE0A2E00F5B464 /* ArtworkType.swift */,
 			);
 			path = ArtworkList;
 			sourceTree = "<group>";
@@ -178,7 +268,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F251EED02BC40BE800F5B464 /* GetPortraits.swift in Sources */,
+				F251EEDC2BC4114A00F5B464 /* AppConfig.swift in Sources */,
+				F251EECB2BC3FDB900F5B464 /* MockArtworks.swift in Sources */,
+				F251EEB42BBE0DE600F5B464 /* ArtObject.swift in Sources */,
+				F251EED22BC40C9300F5B464 /* WebserviceError.swift in Sources */,
+				F251EED42BC40CC100F5B464 /* ArtCollectionWebserviceProtocol.swift in Sources */,
+				F251EEE02BC4183100F5B464 /* GetLandscapes.swift in Sources */,
+				F251EEBD2BBEB7C100F5B464 /* ArtCollectionWebservice.swift in Sources */,
 				F2E675EA2BB1B71C00F878D7 /* ArtworkListViewModel.swift in Sources */,
+				F251EEB82BBE123800F5B464 /* WebImage.swift in Sources */,
+				F251EEBF2BBEB7E000F5B464 /* GetCollectionResponse.swift in Sources */,
 				F231F9B92BB1879C00816828 /* ArtworkListViewController.swift in Sources */,
 				F2E675EC2BB1BAFF00F878D7 /* Artwork.swift in Sources */,
 				F231F9B52BB1879C00816828 /* AppDelegate.swift in Sources */,
@@ -204,6 +304,7 @@
 /* Begin XCBuildConfiguration section */
 		F231F9C32BB1879C00816828 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F251EED92BC4107B00F5B464 /* ConfigDebug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -267,6 +368,7 @@
 		};
 		F231F9C42BB1879C00816828 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F251EED92BC4107B00F5B464 /* ConfigDebug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;

@@ -76,7 +76,7 @@ extension ArtworkListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ArtworkCollectionViewCell.self), for: indexPath) as? ArtworkCollectionViewCell else { return UICollectionViewCell() }
         let item = viewModel.artworks[indexPath.section][indexPath.row]
-        cell.setup(with: Artwork(id: item.id, name: item.name, imageURL: item.imageURL, type: item.type))
+        cell.setup(with: item)
         return cell
     }
 
@@ -88,8 +88,8 @@ extension ArtworkListViewController: UICollectionViewDataSource {
                 withReuseIdentifier:  String(describing: HeaderCollectionReusableView.self),
                 for: indexPath
             ) as? HeaderCollectionReusableView else {
-                return UICollectionReusableView()
-            }
+            return UICollectionReusableView()
+        }
 
         switch indexPath.section {
         case 0:
@@ -134,9 +134,9 @@ private extension ArtworkListViewController {
 
     func getArtworks() {
         viewModel.getArtworks { [weak self] artworks in
-            guard let self else { return }
-            // TODO: Replace
-            self.collectionView.reloadData()
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
         }
     }
 }
